@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>HeyRin Store | Ecommerce Website</title>
+    <link rel="stylesheet" href="../../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Meow+Script&family=Readex+Pro:wght@500&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<div class="fb-customerchat" page_id="1868383883259897" minimized="false">
+</div>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '912333495590130',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v2.11'
+        });
+    };
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<div class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="https://www.facebook.com/hey.rin.clothing">
+                    <img src="../hey_rin_logo.jpg" width="300px">
+                </a>
+            </div>
+            <nav>
+                <ul id = "menuItems">
+                    <li><a href="../../index.html">Trang chủ</a></li>
+                    <li><a class="active" href="../../catalog/catalog.html">Sản phẩm</a></li>
+                </ul>
+            </nav>
+            <img src="../menu.png" class="menu-icon" onclick="menutoggle()">
+        </div>
+
+
+    </div>
+</div>
+
+<section id="prodetails" class="session-p1">
+    <div class="small-container">
+        <div class="single-prod-image">
+            <img id="mainImg" src="<main_image>" width="100%"/>
+            <div class="small-img-group">
+                <image-detail/>
+            </div>
+        </div>
+        <div class="single-prod-details">
+            <h1><product_code/></h1>
+            <h4>Women Fashion Dress</h4>
+            <i class="fa fa-tag" aria-hidden="true"> <product_price/>k</i>
+            <h4>Product Details</h4>
+            <span>
+            </span>
+        </div>
+    </div>
+
+</section>
+
+<!--------------- offer product ----------->
+<div class="testimonial">
+    <div class="small-container">
+        <div class="row">
+
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <!-- <p>Successful isn't always about greatness. It's about consistency.
+                    Consistency <br /> hard work gains success. Greateness will come.
+                </p> -->
+                <img src="../feedback_1.jpg"/>
+                <!-- <h3>Kaylee</h3> -->
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <!-- <p>Successful isn't always about greatness. It's about consistency.
+                    Consistency <br /> hard work gains success. Greateness will come.
+                </p> -->
+                <img src="../feedback_3.png"/>
+                <!-- <h3>Kaylee</h3> -->
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <!-- <p>Successful isn't always about greatness. It's about consistency.
+                    Consistency <br /> hard work gains success. Greateness will come.
+                </p> -->
+                <img src="../feedback_2.jpg"/>
+                <!-- <h3>Kaylee</h3> -->
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var mainImg = document.getElementById("mainImg");
+    var smallImg = document.getElementsByClassName("small-img");
+    smallImg[0].onclick = function () {
+        mainImg.src = smallImg[0].src;
+    }
+    smallImg[1].onclick = function () {
+        mainImg.src = smallImg[1].src;
+    }
+    smallImg[2].onclick = function () {
+        mainImg.src = smallImg[2].src;
+    }
+    smallImg[3].onclick = function () {
+        mainImg.src = smallImg[3].src;
+    }
+
+    var menuItems = document.getElementById("menuItems");
+    menuItems.style.maxHeight = "0px";
+    function menutoggle() {
+        if (menuItems.style.maxHeight == "0px") {
+            menuItems.style.maxHeight = "200px";
+        } else {
+            menuItems.style.maxHeight = "0px";
+        }
+    }
+</script>
+</body>
+
+</html>
