@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>HeyRin Store | Ecommerce Website</title>
+    <link rel="stylesheet" href="../style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Meow+Script&family=Readex+Pro:wght@500&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<div class="fb-customerchat" page_id="1868383883259897" minimized="false">
+</div>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '912333495590130',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v2.11'
+        });
+    };
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<div class="header">
+    <div class="container">
+        <div class="navbar">
+            <div class="logo">
+                <a href="https://www.facebook.com/hey.rin.clothing">
+                    <img src="../images/hey_rin_logo.jpg">
+                </a>
+            </div>
+            <nav>
+                <ul id="menuItems">
+                    <li><a href="../index.html">Trang chủ</a></li>
+                    <li><a class="active" href="../catalog/catalog.html">Sản phẩm</a></li>
+                </ul>
+            </nav>
+            <img src="../images/menu.png" class="menu-icon" onclick="menutoggle()">
+            <!-- <img src="images/cart.png" width="30px" height="30px"> -->
+        </div>
+    </div>
+</div>
+
+<!--------------- offer product ----------->
+
+<div class="small-container">
+    <!-- <h2 class="title">Sản phẩm</h2> -->
+    <div class="pro-container">
+
+        <heyrin-sale-overview-element/>
+    </div>
+</div>
+
+<script>
+    var menuItems = document.getElementById("menuItems");
+    menuItems.style.maxHeight = "0px";
+
+    function menutoggle() {
+        if (menuItems.style.maxHeight == "0px") {
+            menuItems.style.maxHeight = "200px";
+        } else {
+            menuItems.style.maxHeight = "0px";
+        }
+    }
+</script>
+</body>
+
+</html>

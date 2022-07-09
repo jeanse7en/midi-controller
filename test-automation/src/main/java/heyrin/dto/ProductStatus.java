@@ -1,3 +1,5 @@
+package heyrin.dto;
+
 public enum ProductStatus {
 
     SOLD_OUT("status-sold-out"),

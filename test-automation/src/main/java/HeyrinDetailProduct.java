@@ -1,4 +1,5 @@
 import com.fasterxml.jackson.annotation.JsonProperty;
+import heyrin.dto.ProductStatus;
 import lombok.Data;
 
 @Data

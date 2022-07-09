@@ -1,12 +1,9 @@
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import heyrin.utils.DataHelper;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -54,7 +51,7 @@ public class CreateCatalogTest {
         for (HeyrinDetailProduct heyrinDetailProduct : heyrinDetailProducts) {
             List<String> detailImageLocations = DataHelper.asString(heyrinDetailProduct.getImageDetailLocation(), "\n");
             StringBuilder output = new StringBuilder();
-            Path detailHtmlFile = Paths.get(String.format(HOME_UBUNTU_DOCUMENTS_HEY_RIN_STORE_IMAGES + "%s/%s", heyrinDetailProduct.getFolderName(), "productDetail.html"));
+            Path detailHtmlFile = Paths.get(String.format(HOME_UBUNTU_DOCUMENTS_HEY_RIN_STORE_IMAGES + "%s/%s", heyrinDetailProduct.getFolderName(), "/productDetail.html"));
             for (String detailImageLocation : detailImageLocations) {
                 output.append(detailImage.replace("<image_detail>",
                         String.format(detailImageLocation)));
@@ -70,7 +67,7 @@ public class CreateCatalogTest {
     private List<HeyrinDetailProduct> getPayLoadProducts() throws IOException {
         ObjectMapper gson = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         String payload = new String(Files.readAllBytes(Paths.get("./src/test/java/payload.txt")));
-        List<HeyrinDetailProduct> heyrinDetailProducts = gson.readValue(payload, new TypeReference<List<HeyrinDetailProduct>>() {});
-        return heyrinDetailProducts;
+//        List<HeyrinDetailProduct> heyrinDetailProducts = gson.readValue(payload, new TypeReference<List<HeyrinDetailProduct>>() {});
+        return null;
     }
 }

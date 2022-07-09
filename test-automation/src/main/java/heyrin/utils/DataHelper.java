@@ -1,3 +1,5 @@
+package heyrin.utils;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.collections4.CollectionUtils;
@@ -11,6 +13,7 @@ import java.util.function.Supplier;
 import java.util.stream.Collectors;
 
 public class DataHelper {
+    public static final int FIRST_INDEX = 0;
     private static final int MAX_TOKEN_WATERMARK_LENGTH = 50;
     private static final ObjectMapper gson = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
