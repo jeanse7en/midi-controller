@@ -201,7 +201,7 @@ public class DataHelper {
         if (CollectionUtils.isEmpty(data)) {
             return new ArrayList<>();
         }
-        List<K> collect = data.stream().filter(fil0).map(var0).collect(Collectors.toList());
+        List<K> collect = data.stream().filter(fil0).map(var0).filter(Objects::nonNull).collect(Collectors.toList());
         if (CollectionUtils.isEmpty(collect)) {
             return new ArrayList<>();
         }

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, intial-scale=1.0">
+    <title>HeyRin Store | Ecommerce Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Meow+Script&family=Readex+Pro:wght@500&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+<div class="fb-customerchat"
+     page_id="1868383883259897"
+     minimized="false">
+</div>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '912333495590130',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v2.11'
+        });
+    };
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+            return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+
+<div class="header-container">
+    <div class="container">
+        <nav>
+            <div class="logo">
+                <a href="https://www.facebook.com/hey.rin.clothing">
+                    <img src="images/hey-Rin.png">
+                </a>
+            </div>
+            <ul id="menuItems">
+                <li><a class="active" href="index.html">Trang chủ</a></li>
+                <li><a href="catalog/catalog.html">Sản phẩm</a></li>
+                <li><a href="sales/product_sale.html">Giảm giá</a>
+                    <ul>
+                        <li><a href="sales/product_sale.html">Combo 499k</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <img src="images/menu.png" class="menu-icon" onclick="menutoggle()">
+        </nav>
+    </div>
+</div>
+
+<div class="header">
+    <div class="row cover">
+        <div class="col-2">
+            <h1>Be pretty, <br/> <br/> be confident!</h1>
+            <!-- <p>Successful isn't always about greatness. It's about consistency.
+                Consistency <br /> hard work gains success. Greateness will come.
+            </p> -->
+            <!-- <a href="" class="btn">Explore Now &#8594;</a> -->
+        </div>
+        <div class="col-2">
+            <img src="images/category_red.jpg" id="mainImage">
+        </div>
+    </div>
+</div>
+
+<!--------------- feaure categories ----------->
+<div class="categories">
+    <div class="small-container">
+        <div class="row">
+            <div class="col-3">
+                <img src="images/category_white.jpg">
+            </div>
+            <div class="col-3">
+                <img src="images/category_blue.jpg">
+            </div>
+            <div class="col-3">
+                <img src="images/category_gold.jpg">
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!--------------- offer product ----------->
+<div class="offer">
+
+    <div class="small-container">
+        <div class="row">
+            <div class="col-2">
+                <img src="images/cover/21ae8d7a209ce3c2ba8d4.jpg" class="offer-img" id="headerImage">
+            </div>
+            <div class="col-2">
+                <p>
+                    <i class="fa fa-quote-left"></i>
+                    You have to be unique, and different, <br/> and shine in your own way
+                    <i class="fa fa-quote-right"></i>
+                </p>
+                <br/>
+                <h1>New <br/> arrivals</h1>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="small-container">
+    <div class="new-product-container">
+        #foreach($newProduct in $newProducts)
+        <div class="small-img">
+            <img src="images/$newProduct.productLocation">
+        </div>
+        #end
+    </div>
+</div>
+
+
+<!-- <section id="feature" class="session-p1">
+    <div class="fe-box">
+        <img src="images/free-ship.jpg" alt=""/>
+        <h6>Free Shipping</h6>
+    </div>
+    <div class="fe-box">
+        <img src="images/free-ship.jpg" alt=""/>
+        <h6>Free Shipping</h6>
+    </div>
+    <div class="fe-box">
+        <img src="images/free-ship.jpg" alt=""/>
+        <h6>Free Shipping</h6>
+    </div>
+    <div class="fe-box">
+        <img src="images/free-ship.jpg" alt=""/>
+        <h6>Free Shipping</h6>
+    </div>
+    <div class="fe-box">
+        <img src="images/free-ship.jpg" alt=""/>
+        <h6>Free Shipping</h6>
+    </div>
+
+</section> -->
+
+<!--------------- offer product ----------->
+<div class="testimonial">
+    <div class="small-container">
+        <div class="row">
+
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <!-- <p>Successful isn't always about greatness. It's about consistency.
+                    Consistency <br /> hard work gains success. Greateness will come.
+                </p> -->
+                <img src="images/feedback_1.jpg"/>
+                <!-- <h3>Kaylee</h3> -->
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <!-- <p>Successful isn't always about greatness. It's about consistency.
+                    Consistency <br /> hard work gains success. Greateness will come.
+                </p> -->
+                <img src="images/feedback_3.png"/>
+                <!-- <h3>Kaylee</h3> -->
+            </div>
+            <div class="col-3">
+                <i class="fa fa-quote-left"></i>
+                <!-- <p>Successful isn't always about greatness. It's about consistency.
+                    Consistency <br /> hard work gains success. Greateness will come.
+                </p> -->
+                <img src="images/feedback_2.jpg"/>
+                <!-- <h3>Kaylee</h3> -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var menuItems = document.getElementById("menuItems");
+    menuItems.style.maxHeight = "0px";
+
+    function menutoggle() {
+        if (menuItems.style.maxHeight == "0px") {
+            menuItems.style.maxHeight = "100%";
+        } else {
+            menuItems.style.maxHeight = "0px";
+        }
+    }
+
+    var currentImage = document.getElementById("mainImage");
+    var images = ["images/category_white.jpg", "images/category_blue.jpg", "images/category_gold.jpg"];
+    setInterval(function () {
+        var random = Math.floor(Math.random() * 3);
+        currentImage.src = images[random];
+    }, 2000);
+
+    var headerImage = document.getElementById("headerImage");
+    var headerImages = $newProductLocations;
+    setInterval(function () {
+        var random = Math.floor(Math.random() * headerImages.length);
+        headerImage.src = 'images/' + headerImages[random];
+    }, 2000);
+
+</script>
+
+</body>
+
+</html>

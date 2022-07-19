@@ -23,7 +23,7 @@ public class HrProductArrangement implements Serializable {
 	@Column(name="created_time")
 	private Date createdTime;
 
-	private String order;
+	private Integer order;
 
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="updated_time")
@@ -58,11 +58,11 @@ public class HrProductArrangement implements Serializable {
 		this.createdTime = createdTime;
 	}
 
-	public String getOrder() {
+	public Integer getOrder() {
 		return this.order;
 	}
 
-	public void setOrder(String order) {
+	public void setOrder(Integer order) {
 		this.order = order;
 	}
 

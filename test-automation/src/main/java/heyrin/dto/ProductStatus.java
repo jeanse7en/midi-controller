@@ -3,7 +3,9 @@ package heyrin.dto;
 public enum ProductStatus {
 
     SOLD_OUT("status-sold-out"),
-    AVAILABLE("status-available");
+    NEW_ARRIVAL("status-available"),
+    AVAILABLE("status-available"),
+    LOW_IN_STOCK("status-low-in-stock");
     private String styleClass;
 
     ProductStatus(String styleClass) {
