@@ -49,7 +49,7 @@
                 <li><a  class="active" href="../../catalog/catalog.html">Sản phẩm</a></li>
                 <li><a  href="../../sales/product_sale.html">Giảm giá</a>
                     <ul>
-                        <li><a href="../../sales/product_sale.html">Combo 499k</a>
+                        <li><a href="../../sales/product_sale.html">Đồng giá 299k</a>
                         </li>
                     </ul>
                 </li>
@@ -74,7 +74,15 @@
         <div class="single-prod-details">
             <h1><product_code/></h1>
             <h4>Women Fashion Dress</h4>
-            <i class="fa fa-tag" aria-hidden="true">$productSale.productPrice k</i>
+
+            <i class="fa fa-tag" aria-hidden="true">
+                #if($productSale.isSale)
+                <span class="line-through"><span class="tag-price">$productSale.productPrice k </span></span>
+                <span class="tag-price-sale"> 299 k</span>
+                #else
+                <span class="tag-price"> $productSale.productPrice k</span>
+                #end
+            </i>
 <!--            <h4>Product Details</h4>-->
             <span>
             </span>
@@ -100,7 +108,12 @@
                             $relateProduct.productCode
                         </h5>
                         <i class="fa fa-tag tag-price" aria-hidden="true">
-                            <span class="tag-price">$relateProduct.productPrice k</span>
+                            #if($relateProduct.isSale)
+                            <span class="line-through"><span class="tag-price">$relateProduct.productPrice k </span></span>
+                            <span class="tag-price-sale"> 299 k</span>
+                            #else
+                            <span class="tag-price"> $relateProduct.productPrice k</span>
+                            #end
                             <span class="$relateProduct.productStatus.styleClass"></span>
                         </i>
                     </div>

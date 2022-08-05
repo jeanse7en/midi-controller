@@ -87,7 +87,7 @@ public class HrSaleService {
     public void createSalePage() throws IOException {
         StringWriter writer = new StringWriter();
         VelocityContext context = new VelocityContext();
-        List<HrProductPromotionAssignment> hrProductPromotionAssignments = hrProductPromotionAssignment.findAll();
+        List<HrProductPromotionAssignment> hrProductPromotionAssignments = hrProductPromotionAssignment.findByDeprecatedTimeIsNull();
         List<HrBindingProduct> hrSaleBindingProducts = DataHelper.getFieldList(hrProductPromotionAssignments, this::createSaleElement, Objects::nonNull);
         hrSaleBindingProducts = hrProductSorting.sortProducts(hrSaleBindingProducts);
         context.put("productSales", hrSaleBindingProducts);

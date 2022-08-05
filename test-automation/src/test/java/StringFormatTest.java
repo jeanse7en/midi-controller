@@ -9,8 +9,8 @@ public class StringFormatTest {
                 "818\n" +
                 "745\n" +
                 "746\n" +
-                "679\n" +
                 "690\n" +
+                "679\n" +
                 "859\n" +
                 "871\n" +
                 "873\n" +

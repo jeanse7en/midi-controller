@@ -1,9 +1,6 @@
 package heyrin.service;
 
-import heyrin.repository.entity.HrProduct;
-import heyrin.repository.entity.HrProductArrangement;
-import heyrin.repository.entity.HrProductImage;
-import heyrin.repository.entity.HrProductImageAssignment;
+import heyrin.repository.entity.*;
 import heyrin.service.dto.HrBindingProduct;
 import heyrin.service.dto.ImagePurpose;
 import heyrin.utils.DataHelper;
@@ -39,6 +36,7 @@ public class HrProductConverter {
             HrProductImage hrProductImage = mainProductImages.get(DataHelper.FIRST_INDEX).getHrProductImage();
 
             HrBindingProduct hrSaleBindingProduct = new HrBindingProduct();
+            hrSaleBindingProduct.setProductId(hrProduct.getId());
             hrSaleBindingProduct.setProductCode(hrProduct.getCode());
             hrSaleBindingProduct.setProductLocation(String.format("%s/%s", hrProduct.getFolder(), hrProductImage.getLocation()));
             hrSaleBindingProduct.setProductDetailHtmlLocation(String.format("%s/productDetail.html", hrProduct.getFolder()));
@@ -47,7 +45,8 @@ public class HrProductConverter {
             hrSaleBindingProduct.setImageName(hrProductImage.getLocation());
             hrSaleBindingProduct.setIndex(getProductIndex(hrProduct));
 
-            if (CollectionUtils.isNotEmpty(hrProduct.getHrProductPromotionAssignments())) {
+            List<HrProductPromotionAssignment> promotionAssignments = DataHelper.getFieldList(hrProduct.getHrProductPromotionAssignments(), Function.identity(), e -> e.getDeprecatedTime() == null);
+            if (CollectionUtils.isNotEmpty(promotionAssignments)) {
                 hrSaleBindingProduct.setIsSale(true);
             } else {
                 hrSaleBindingProduct.setIsSale(false);

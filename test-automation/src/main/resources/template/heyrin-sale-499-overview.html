@@ -35,6 +35,7 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 
+
 <div class="header-container">
     <div class="container">
         <nav>
@@ -45,10 +46,10 @@
             </div>
             <ul id="menuItems">
                 <li><a href="../index.html">Trang chủ</a></li>
-                <li><a class="active" href="../catalog/catalog.html">Sản phẩm</a></li>
-                <li><a   href="../sales/product_sale.html">Giảm giá</a>
+                <li><a href="../catalog/catalog.html">Sản phẩm</a></li>
+                <li><a class="active" href="../sales/product_sale.html">Giảm giá</a>
                     <ul>
-                        <li><a href="../sales/product_sale.html">Đồng giá 299k</a>
+                        <li><a href="../sales/product_sale.html">Đồng giá 499k</a>
                         </li>
                     </ul>
                 </li>
@@ -58,61 +59,44 @@
     </div>
 </div>
 
-<!-- <div class="header">
-    <div class="container">
-        <div class="navbar">
-            <div class="logo">
-                <a href="https://www.facebook.com/hey.rin.clothing">
-                    <img src="../images/hey_rin_logo.jpg">
-                </a>
-            </div>
-            <nav>
-                <ul id = "menuItems">
-                    <li><a href="../index.html">Trang chủ</a></li>
-                    <li><a class="active" href="../catalog/catalog.html">Sản phẩm</a></li>
-                </ul>
-            </nav>
-            <img src="../images/menu.png" class="menu-icon" onclick="menutoggle()">
-        </div>
-    </div>
-</div> -->
+<div class="center">
+    <i class="fa fa-tag tag-price" aria-hidden="true">
+        <span class="tag-price">Ship nội thành Sài Gòn đồng giá 15k - Ship tỉnh đồng giá 25k</span>
+    </i>
+</div>
 
 <!--------------- offer product ----------->
 
 <div class="small-container">
     <!-- <h2 class="title">Sản phẩm</h2> -->
     <div class="pro-container">
+
+<!--        <heyrin-sale-overview-element/>-->
         #foreach($productSale in $productSales)
-            <div class="col-4 pro">
-                <a href="../images/$productSale.productDetailHtmlLocation">
-                    <img class="$productSale.productStatus.styleClass" src="../images/$productSale.productLocation">
-                    #if($productSale.isSale)
-                        <a href="../sales/product_sale.html">
-                            <div class="text-block">
-                                <h4>SALE</h4>
-                            </div>
-                        </a>
-                    #end
-                    <div class="des">
-                        <span>Heyrin</span>
-                        <h5>
-                            $productSale.productCode
-                        </h5>
-                        <i class="fa fa-tag" aria-hidden="true">
-                            #if($productSale.isSale)
-                            <span class="line-through"><span class="tag-price">$productSale.productPrice k </span></span>
-                            <span class="tag-price-sale"> 299 k</span>
-                            #else
-                            <span class="tag-price"> $productSale.productPrice k</span>
-                            #end
-                            <span class="$productSale.productStatus.styleClass"></span>
-                        </i>
-                    </div>
-                </a>
-            </div>
+        <div class="col-4 pro">
+            <a href="../images/heyrin_43/productDetail.html">
+                <img class="status-available" src="../images/$productSale.productLocation">
+                <div class="text-block">
+                    <h4>SALE</h4>
+                </div>
+                <div class="des">
+                    <span>Heyrin</span>
+                    <h5>
+                        $productSale.productCode
+                    </h5>
+                    <i class="fa fa-tag" aria-hidden="true">
+                        <span class="line-through"><span class="tag-price">$productSale.productPrice k </span></span>
+                        <span class="tag-price-sale"> 299 k</span>
+                        <span class="$productSale.productStatus.styleClass"></span>
+                    </i>
+                </div>
+            </a>
+        </div>
         #end
+
     </div>
 </div>
+
 <script>
     var menuItems = document.getElementById("menuItems");
     menuItems.style.maxHeight = "0px";

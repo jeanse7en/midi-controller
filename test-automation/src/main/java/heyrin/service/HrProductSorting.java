@@ -12,6 +12,8 @@ import java.util.stream.Collectors;
 public class HrProductSorting {
 
     public List<HrBindingProduct> sortProducts(List<HrBindingProduct> hrProducts) {
-        return hrProducts.stream().sorted(Comparator.comparing(e -> e.getIndex())).collect(Collectors.toList());
+        return hrProducts.stream().sorted(Comparator.comparingInt(HrBindingProduct::getIndex)
+                        .thenComparing(HrBindingProduct::getProductId, Comparator.reverseOrder()))
+                .collect(Collectors.toList());
     }
 }

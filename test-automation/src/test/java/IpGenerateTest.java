@@ -13,7 +13,7 @@ public class IpGenerateTest {
 
     @Test
     public void generateRouterIp() throws AddressStringException {
-        IPAddress ipAddress = new IPAddressString("10.112.128.0/24").toAddress();
+        IPAddress ipAddress = new IPAddressString("10.111.128.0/17").toAddress();
         IpUtils.iterateSingle(ipAddress);
     }
 
