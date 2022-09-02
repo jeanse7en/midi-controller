@@ -124,18 +124,18 @@ Pot *MUXPOTS[] {};
 //*******************************************************************
 
 const int led=13;
-const int button=12;
-const int button2=14;
+const int button=0;
+const int button2=2;
 int temp = 1;
 int temp2 = 1;
 int previous = 1;
 int previous2 = 1;
-int transpose[25] = {0,  5, 10, 15, 20, 23, 30, 36, 41, 46, 53, 60, 65, 70, 75, 81, 86, 92, 97, 104, 109, 115, 121, 126};
-int currentTranspose = 12;
+int transpose[13] = {45, 48, 51, 54, 57, 60, 64, 67, 70, 73, 76, 79, 81};
+int currentTranspose = 6;
 void setup() {
 //  MIDI.begin(MIDI_CHANNEL_OFF);
   Serial.begin(31250);
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(led, OUTPUT);
   pinMode(button, INPUT_PULLUP);
   pinMode(button2, INPUT_PULLUP);
 }
@@ -147,6 +147,7 @@ void noteOn(int cmd, int pitch, int velocity) {
   Serial.write(velocity);
 }
 void loop() {
+
 //  delay(1000);
 //  if (NUMBER_BUTTONS != 0) updateButtons();
 //  if (NUMBER_POTS != 0) updatePots();
@@ -154,16 +155,16 @@ void loop() {
 //  if (NUMBER_MUX_POTS != 0) updateMuxPots();
   temp = digitalRead(button);
   if (temp == LOW) {
-    if (previous != temp && currentTranspose < 24) {
+    if (previous != temp && currentTranspose < 12) {
       ++currentTranspose;
       noteOn(0xB0, 0, transpose[currentTranspose]);
-      digitalWrite(LED_BUILTIN, HIGH);
+      digitalWrite(led, HIGH);
       previous = 0;
       delay(100);
     }
   } else {
      if (previous != temp) {
-      digitalWrite(LED_BUILTIN, LOW);
+      digitalWrite(led, LOW);
       previous = 1;
       delay(100);
     }
@@ -175,16 +176,21 @@ void loop() {
       --currentTranspose;
 //      noteOn(0x90, 0x63, 0);
       noteOn(0xB0, 0,  transpose[currentTranspose]); 
-      digitalWrite(LED_BUILTIN, HIGH);
+      digitalWrite(led, HIGH);
       previous2 = 0;
       delay(100);
     }
   } else {
      if (previous2 != temp2) {
-      digitalWrite(LED_BUILTIN, LOW);
+      digitalWrite(led, LOW);
       previous2 = 1;
       delay(100);
     }
+  }
+
+  if (temp2 == LOW && temp == LOW) {
+    currentTranspose = 6;
+    noteOn(0xB0, 0,  transpose[currentTranspose]); 
   }
 }
 

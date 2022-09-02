@@ -32,9 +32,8 @@ public final class IpUtils {
 
     public static void iterateSingle(IPAddress subnet) {
         PrintStream out = System.out;
-        int count = subnet.getCount().intValue();
         for(IPAddress addr: subnet.getIterable()) {
-            System.out.println(addr.toConvertedString().substring(0, addr.toConvertedString().indexOf("/")));
+            System.out.println(addr.withoutPrefixLength().toCanonicalString());
         }
     }
 }

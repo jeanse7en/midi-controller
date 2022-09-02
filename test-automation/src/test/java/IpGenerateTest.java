@@ -7,19 +7,19 @@ import org.junit.jupiter.api.Test;
 public class IpGenerateTest {
     @Test
     public void generateP2pLink() throws AddressStringException {
-        IpUtils.generateP2pLink("10.112.128.0/24");
+        IpUtils.generateP2pLink("0:0:0:0:FD00:0:1000:1000/116");
     }
 
 
     @Test
     public void generateRouterIp() throws AddressStringException {
-        IPAddress ipAddress = new IPAddressString("10.111.128.0/17").toAddress();
+        IPAddress ipAddress = new IPAddressString("10.110.201.0/24").toAddress();
         IpUtils.iterateSingle(ipAddress);
     }
 
     @Test
     public void generateIpDoubleStep() throws AddressStringException {
-        IPAddress ipAddress = new IPAddressString("10.131.0.0/17").toAddress();
+        IPAddress ipAddress = new IPAddressString("10.111.0.0/17").toAddress();
 //        IPAddress maxAddress = new IPAddressString("FD00:0:3000:0::f0/127").toAddress();
         IPAddress counter = ipAddress;
         Integer step = 14;
